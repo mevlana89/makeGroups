@@ -1,9 +1,10 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class PickMeSenpai {
 
-    private static String[] studentsList = new String[]{"Jérôme", "Nicolas", "Sandrine", "Stéphane", "Maxime", "Hajar", "Christophe", "Mustafa"};
+    private static String[] studentsList = new String[]{"Jérôme", "Nicolas", "Sandrine", "Stéphane", "Maxime", "Hajar", "Christophe", "Mustafa", "Huber"};
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -19,7 +20,7 @@ public class PickMeSenpai {
 
     private static void displayGroups(String[][] groupsList) {
         for (int i = 0; i < groupsList.length; i++) {
-            System.out.println("Groupe " + (i + 1) + " : " + String.join(", ", groupsList[i]));
+            System.out.println("Groupe " + (i + 1) + " : " + String.join(", ", Arrays.stream(groupsList[i]).filter(Objects::nonNull).toArray(String[]::new)));
         }
     }
 
